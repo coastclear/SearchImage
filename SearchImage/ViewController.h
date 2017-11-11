@@ -7,9 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AFNetworking.h"
 
-@interface ViewController : UIViewController
+typedef NS_ENUM(NSUInteger, NSCellType) {
+    NSNullCellType = 0,
+    NSNaverCellType = 1,
+    NSKakaoCellType = 2
+};
 
-
+@interface ViewController : UIViewController<UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource>{
+    NSDictionary* srchResultDic;
+    NSArray* enginesArr;
+    NSUInteger curEngineType;
+    NSArray* itemsArr;
+}
+@property (weak, nonatomic) IBOutlet UITextField *tfSearchEngine;
+@property (weak, nonatomic) IBOutlet UITableView *dropDownView;
+@property (weak, nonatomic) IBOutlet UIView *emptyView;
+@property (nonatomic, weak) IBOutlet UITextField* tfSearch;
+@property (nonatomic, weak) IBOutlet UICollectionView* collectionView;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView* loadingView;
 @end
 
